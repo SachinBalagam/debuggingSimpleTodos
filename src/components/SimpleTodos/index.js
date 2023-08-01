@@ -1,6 +1,6 @@
-import {component} from 'react'
+import {Component} from 'react'
 
-import TodoItem from '../TodoItem'
+import TodoItem from '../TodoItem/index'
 
 import './index.css'
 
@@ -40,11 +40,11 @@ const initialTodosList = [
 ]
 
 class SimpleTodos extends Component {
-  state : {
-    todosList= initialTodosList,
+  state = {
+    todosList: initialTodosList,
   }
 
-  const deleteTodo = id => {
+  deleteTodo = id => {
     const {todosList} = this.state
     const updatedTodosList = todosList.filter(eachTodo => eachTodo.id !== id)
 
@@ -61,7 +61,7 @@ class SimpleTodos extends Component {
         <div className="simple-todos-container">
           <h1 className="heading">Simple Todos</h1>
           <ul className="todos-list">
-            {todosList[0].map(eachTodo => (
+            {todosList.map(eachTodo => (
               <TodoItem
                 key={eachTodo.id}
                 todoDetails={eachTodo}
